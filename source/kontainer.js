@@ -87,6 +87,7 @@
         },
 
         inject: function (factory, path, custom) {
+            factory = factory.slice();
             var self = this,
                 fn = factory.pop(),
                 args = [],
