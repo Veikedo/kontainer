@@ -87,16 +87,15 @@
         },
 
         inject: function (factory, path, custom) {
-            factory = factory.slice();
             var self = this,
-                fn = factory.pop(),
+                fn = factory[factory.length - 1],
                 args = [],
                 i,
                 len,
                 name,
                 value;
 
-            for (i = 0, len = factory.length; i < len; i += 1) {
+            for (i = 0, len = factory.length - 1; i < len; i += 1) {
                 name = factory[i];
                 value = custom && custom.hasOwnProperty(name) ? custom[name] : self.resolve(name, path);
 
